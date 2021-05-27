@@ -3,7 +3,7 @@ import React from 'react'
 function Weather() {
     return (
         <div>
-            Weather api
+            Weather api test
         </div>
     )
 }
