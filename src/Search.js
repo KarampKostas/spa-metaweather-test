@@ -56,7 +56,26 @@ export default function Search() {
 
             <div>
                 <Modal open={isOpen} onClose={() =>setIsOpen(false)}>
-                    Children
+                {locData.consolidated_weather.map(data =>(
+
+                    <div key={data.id} className="consolidate">
+                        <div><strong>Weather-state</strong>: {data.weather_state_name}</div>
+                        <div><strong>Weathe-abbr</strong>: {data.weather_state_abbr}</div>
+                        <div><strong>Wind-direction-compass</strong>: {data.wind_direction_compass}</div>
+                        <div><strong>Data</strong>: {data.created}</div>
+                        <div><strong>App-data</strong>: {data.applicable_date}</div>
+                        <div><strong>Min-temp</strong>: {data.min_temp}</div>
+                        <div><strong>Max-temp</strong>:{data.the_temp}</div>
+                        <div><strong>The temp</strong>:{data.wind_speed}</div>
+                        <div><strong>Wind Direction</strong>:{data.wind_direction}</div>
+                        <div><strong>Air pressure</strong>:{data.airpressure}</div>
+                        <div><strong>Humidity</strong>:{data.humidity}</div>
+                        <div><strong>Visibility</strong>:{data.visibility}</div>
+                        <div><strong>Predictability</strong>:{data.predictability}</div>
+                        <br/>
+                    </div>
+                ))}
+                        
                 </Modal>
             </div>
         </div>
