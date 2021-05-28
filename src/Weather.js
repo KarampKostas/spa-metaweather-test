@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Weather() {
+
+function Weather({info}) {
+    
+
     return (
         <div>
-            Weather api test
+            
         </div>
     )
 }
