@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-function Weather({info}) {
+function Weather({children}) {
     
 
     return (
         <div>
-            
+            {children}
         </div>
     )
 }

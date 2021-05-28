@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Modal from './Modal';
+import Weather from './Weather';
 
 
 
 export default function Search() {
 
-    const [search,setSearch] = useState('');
+    const [search,setSearch] = useState(null);
     const [infos,setInfos] = useState([]);
     const [locData,setlocData] = useState([]);
 
@@ -43,26 +44,27 @@ export default function Search() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}    />
             </form>
-           <div className="city-container">
+           <Weather>
                 {infos.map(info =>(
-                    <div key={info.woeid} className="city" onClick={() => handleClick(info.woeid)}>
-                        <div className="city-title">Name: {info.title}</div> 
-                        <div>Type: {info.location_type}</div>
-                        <div>Latitude and Longtitue: {info.latt_long}</div>
+                    <div key={info.woeid} className="city city-title" onClick={() => handleClick(info.woeid)}>
+                        <div><strong>Name</strong>: {info.title}</div> 
+                        <div><strong>Type</strong>: {info.location_type}</div>
+                        <div><strong>Latitude</strong>: {(info.latt_long.split(","))[0]}</div>
+                        <div><strong>Longitude</strong>: {(info.latt_long.split(","))[1]}</div>
                     </div>
-
                     ))}
-            </div>
+            </Weather>
 
             <div>
                 <Modal open={isOpen} onClose={() =>setIsOpen(false)}>
-                {locData.consolidated_weather.map(data =>(
+                    
+                {locData.consolidated_weather && locData.consolidated_weather.map(data =>(
 
                     <div key={data.id} className="consolidate">
                         <div><strong>Weather-state</strong>: {data.weather_state_name}</div>
                         <div><strong>Weathe-abbr</strong>: {data.weather_state_abbr}</div>
                         <div><strong>Wind-direction-compass</strong>: {data.wind_direction_compass}</div>
-                        <div><strong>Data</strong>: {data.created}</div>
+                        <div><strong>Created</strong>: {data.created}</div>
                         <div><strong>App-data</strong>: {data.applicable_date}</div>
                         <div><strong>Min-temp</strong>: {data.min_temp}</div>
                         <div><strong>Max-temp</strong>:{data.the_temp}</div>
