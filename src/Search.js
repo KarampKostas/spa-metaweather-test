@@ -93,7 +93,7 @@ export default function Search() {
                 <Modal open={isOpen} onClose={() =>setIsOpen(false)}>
                 
                 {locData.consolidated_weather && locData.consolidated_weather.map(data =>(
-
+                    
                     <div key={data.id} className="consolidate">
                         <div><strong>Weather-state</strong>: {data.weather_state_name}</div>
                         <div><strong>Weathe-abbr</strong>: {data.weather_state_abbr}</div>
