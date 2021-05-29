@@ -44,7 +44,8 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2px;
+  margin: 2px auto;
+  width: 200px;
 }
 
 .city-title {

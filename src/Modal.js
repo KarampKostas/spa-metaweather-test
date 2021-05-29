@@ -8,7 +8,7 @@ export default function Modal({open ,children,onClose}) {
     return ReactDom.createPortal(
         <div className="modal-container">
             <div className="modal-bg">
-                <button className="close" onClick={onClose}><i id="x-btn" class="fas fa-times"></i></button>
+                <button className="close" onClick={onClose}><i id="x-btn" className="fas fa-times"></i></button>
                 {children}
             </div>
         </div>,
